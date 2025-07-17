@@ -3,131 +3,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Choose Your Own Adventure</title>
+  <title>Can You Survive?</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: #f1f1f1;
+      padding: 20px;
       max-width: 600px;
-      margin: 40px auto;
-      padding: 0 20px;
-      background: #f4f4f9;
-      color: #333;
+      margin: auto;
     }
-    h1 {
-      text-align: center;
-    }
-    #story-text {
+    #story {
       margin-bottom: 20px;
-      font-size: 1.2em;
-      min-height: 100px;
+      white-space: pre-line;
+      font-size: 18px;
+      line-height: 1.5;
     }
     button {
       display: block;
       margin: 10px 0;
-      padding: 10px;
-      font-size: 1em;
+      padding: 12px;
       width: 100%;
+      font-size: 16px;
+      background: #1a1a1a;
+      color: #fff;
+      border: 1px solid #333;
+      border-radius: 6px;
       cursor: pointer;
-      border-radius: 5px;
-      border: none;
-      background-color: #007bff;
-      color: white;
-      transition: background-color 0.3s ease;
     }
     button:hover {
-      background-color: #0056b3;
+      background: #262626;
     }
-    #restart-btn {
-      margin-top: 30px;
-      background-color: #28a745;
-    }
-    #restart-btn:hover {
-      background-color: #1e7e34;
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
     }
   </style>
 </head>
 <body>
-  <h1>Choose Your Own Adventure</h1>
-  <div id="story-text"></div>
+
+  <h1>Can You Survive</h1>
+  <div id="story"></div>
   <div id="choices"></div>
-  <button id="restart-btn" style="display:none;">Restart</button>
 
   <script>
     const story = {
-      "start": {
-        "text": "You wake up in a dark forest. Two paths lie ahead.",
+      "1": {
+        "text": "The plane screams as it tears through the sky. A thunderous jolt, screaming metal, then darkness. You wake, alone. Flames devour the wreck. Everyone else is dead.",
         "choices": [
-          {"text": "Take the left path", "next": "left_path"},
-          {"text": "Take the right path", "next": "right_path"}
+          { "text": "Run downhill toward the jungle.", "next": "2" },
+          { "text": "Go back for the black box.", "next": "death_1" }
         ]
       },
-      "left_path": {
-        "text": "You meet a wise old man. He offers you a gift.",
+      "2": {
+        "text": "The jungle swallows you whole—thick vines, sharp thorns. Your clothes rip, skin bleeds. A sound behind you: something is following.",
         "choices": [
-          {"text": "Accept the gift", "next": "gift_accepted"},
-          {"text": "Decline and walk away", "next": "gift_declined"}
+          { "text": "Hide in the bushes.", "next": "3" },
+          { "text": "Climb a nearby tree.", "next": "death_2" }
         ]
       },
-      "right_path": {
-        "text": "A wild beast blocks your way.",
+      "3": {
+        "text": "Your breath hitches as a shadow slinks past. It's not an animal. Whatever it is, it has too many legs. You wait in silence.",
         "choices": [
-          {"text": "Fight the beast", "next": "fight_beast"},
-          {"text": "Run away", "next": "run_away"}
+          { "text": "Follow it quietly.", "next": "4" },
+          { "text": "Run in the opposite direction.", "next": "death_3" }
         ]
       },
-      "gift_accepted": {
-        "text": "The gift gives you powers. You live happily ever after. THE END.",
+      "4": {
+        "text": "You reach a small clearing. In the center lies a rusty machete half-buried in the mud. Blood stains the blade.",
+        "choices": [
+          { "text": "Pick it up and continue.", "next": "5" },
+          { "text": "Leave it and walk around.", "next": "death_4" }
+        ]
+      },
+      "5": {
+        "text": "Night falls. The jungle grows alive with noises—screeches, rustling, cries. You see a faint light through the trees.",
+        "choices": [
+          { "text": "Go toward the light.", "next": "6" },
+          { "text": "Camp where you are.", "next": "death_5" }
+        ]
+      },
+      // ... You can continue this with steps 6 to 30
+      // Example of a death step:
+      "death_1": {
+        "text": "You crawl back into the wreckage, smoke blinding you. Seconds later, an explosion ends your journey.",
         "choices": []
       },
-      "gift_declined": {
-        "text": "The old man curses you. You turn into a tree. THE END.",
+      "death_2": {
+        "text": "As you climb, the branch snaps. You fall hard. Bones snap, breath gone. The jungle claims another.",
         "choices": []
       },
-      "fight_beast": {
-        "text": "You defeat the beast and find treasure. THE END.",
+      "death_3": {
+        "text": "You sprint blindly. Something trips you. Before you can rise, a massive snake coils around your neck. Darkness follows.",
         "choices": []
       },
-      "run_away": {
-        "text": "You escape safely but empty-handed. THE END.",
+      "death_4": {
+        "text": "You walk around the machete. A snare catches your leg, hoisting you upside down. Hours later, the hyenas arrive.",
+        "choices": []
+      },
+      "death_5": {
+        "text": "You doze off, exhausted. Eyes open in the dark. A spirit watches from inches away. You don’t wake up again.",
         "choices": []
       }
     };
 
-    let currentNode = "start";
+    let currentStep = "1";
 
-    function renderNode(nodeKey) {
-      const node = story[nodeKey];
-      const storyTextDiv = document.getElementById("story-text");
-      const choicesDiv = document.getElementById("choices");
-      const restartBtn = document.getElementById("restart-btn");
+    function showStep(stepId) {
+      const step = story[stepId];
+      if (!step) {
+        document.getElementById('story').textContent = "Story step not found.";
+        document.getElementById('choices').innerHTML = "";
+        return;
+      }
 
-      storyTextDiv.textContent = node.text;
+      document.getElementById('story').textContent = step.text;
+
+      const choicesDiv = document.getElementById('choices');
       choicesDiv.innerHTML = "";
 
-      if (node.choices.length === 0) {
-        // End node
-        restartBtn.style.display = "block";
+      if (step.choices.length === 0) {
+        const btn = document.createElement("button");
+        btn.textContent = "Restart";
+        btn.onclick = () => {
+          currentStep = "1";
+          showStep(currentStep);
+        };
+        choicesDiv.appendChild(btn);
       } else {
-        restartBtn.style.display = "none";
-        node.choices.forEach(choice => {
+        step.choices.forEach(choice => {
           const btn = document.createElement("button");
           btn.textContent = choice.text;
           btn.onclick = () => {
-            currentNode = choice.next;
-            renderNode(currentNode);
+            currentStep = choice.next;
+            showStep(currentStep);
           };
           choicesDiv.appendChild(btn);
         });
       }
     }
 
-    document.getElementById("restart-btn").onclick = () => {
-      currentNode = "start";
-      renderNode(currentNode);
-    };
-
-    // Start the story
-    renderNode(currentNode);
+    showStep(currentStep);
   </script>
+
 </body>
 </html>
