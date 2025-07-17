@@ -2,155 +2,172 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Can You Survive?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Can you survive</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #0d0d0d;
-      color: #f1f1f1;
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
       padding: 20px;
+    }
+    #game-container {
       max-width: 600px;
-      margin: auto;
+      margin: 0 auto;
     }
-    #story {
-      margin-bottom: 20px;
-      white-space: pre-line;
-      font-size: 18px;
-      line-height: 1.5;
-    }
-    button {
+    .choice-button {
       display: block;
       margin: 10px 0;
-      padding: 12px;
-      width: 100%;
+      padding: 10px;
       font-size: 16px;
-      background: #1a1a1a;
-      color: #fff;
-      border: 1px solid #333;
-      border-radius: 6px;
+      background-color: #111;
+      border: 1px solid #0f0;
+      color: #0f0;
       cursor: pointer;
     }
-    button:hover {
-      background: #262626;
-    }
-    h1 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 30px;
+    .choice-button:hover {
+      background-color: #0f0;
+      color: #000;
     }
   </style>
 </head>
 <body>
-
-  <h1>Can You Survive</h1>
-  <div id="story"></div>
-  <div id="choices"></div>
+  <div id="game-container">
+    <h1>Can you survive</h1>
+    <p id="story-text"></p>
+    <div id="choices"></div>
+  </div>
 
   <script>
     const story = {
       "1": {
-  "text": "The plane screams as it tears through the sky. A thunderous jolt, screaming metal, then darkness. You wake, alone. Flames devour the wreck. Everyone else is dead. What do you do next?",
-  "choices": [
-    {
-      "text": "Get out & run towards the jungle.",
-      "next": "2"
-    },
-    {
-      "text": "Search for your phone.",
-      "next": "death_1"
+        "text": "The plane screams as it tears through the sky. A thunderous jolt, screaming metal, then darkness. You wake, alone. Flames devour the wreck. Everyone else is dead. What do you do next?",
+        "choices": [
+          {
+            "text": "Get out & run towards the jungle.",
+            "next": "2"
+          },
+          {
+            "text": "Search for your phone.",
+            "next": "death_1"
+          }
         ]
+      },
+      "death_1": {
+        "text": "You crawl back toward the flaming fuselage, determined to find your phone. A low whine turns into a deafening roar — the engine explodes. Fire engulfs you in seconds. Game over."
       },
       "2": {
-        "text": "The jungle swallows you whole—thick vines, sharp thorns. Your clothes rip, skin bleeds. A sound behind you: something is following.",
+        "text": "You run blindly into the dense jungle, thorns slicing your skin. The smell of burning metal fades, replaced by damp earth and rot. Strange growls echo in the distance.",
         "choices": [
-          { "text": "Hide in the bushes.", "next": "3" },
-          { "text": "Climb a nearby tree.", "next": "death_2" }
+          {
+            "text": "Hide behind a thick tree.",
+            "next": "3"
+          },
+          {
+            "text": "Climb a nearby vine-covered slope.",
+            "next": "death_2"
+          }
         ]
-      },
-      "3": {
-        "text": "Your breath hitches as a shadow slinks past. It's not an animal. Whatever it is, it has too many legs. You wait in silence.",
-        "choices": [
-          { "text": "Follow it quietly.", "next": "4" },
-          { "text": "Run in the opposite direction.", "next": "death_3" }
-        ]
-      },
-      "4": {
-        "text": "You reach a small clearing. In the center lies a rusty machete half-buried in the mud. Blood stains the blade.",
-        "choices": [
-          { "text": "Pick it up and continue.", "next": "5" },
-          { "text": "Leave it and walk around.", "next": "death_4" }
-        ]
-      },
-      "5": {
-        "text": "Night falls. The jungle grows alive with noises—screeches, rustling, cries. You see a faint light through the trees.",
-        "choices": [
-          { "text": "Go toward the light.", "next": "6" },
-          { "text": "Camp where you are.", "next": "death_5" }
-        ]
-      },
-      // ... You can continue this with steps 6 to 30
-      // Example of a death step:
-      "death_1": {
-        "text": "You crawl back into the wreckage, smoke blinding you. Seconds later, an explosion ends your journey.",
-        "choices": []
       },
       "death_2": {
-        "text": "As you climb, the branch snaps. You fall hard. Bones snap, breath gone. The jungle claims another.",
-        "choices": []
+        "text": "You slip on the mossy slope, tumbling down and snapping your neck on a jagged root. Your body is claimed by the jungle."
+      },
+      "3": {
+        "text": "You crouch silently. Something large sniffs the air and passes by — a black jaguar. You hold your breath until it vanishes into the shadows.",
+        "choices": [
+          {
+            "text": "Follow the jaguar’s path.",
+            "next": "death_3"
+          },
+          {
+            "text": "Sneak in the opposite direction.",
+            "next": "4"
+          }
+        ]
       },
       "death_3": {
-        "text": "You sprint blindly. Something trips you. Before you can rise, a massive snake coils around your neck. Darkness follows.",
-        "choices": []
+        "text": "The jaguar wasn’t alone. Another lunges from a tree, jaws clamping around your throat. You don’t even scream."
+      },
+      // Continue this pattern up to step 30 with alternating survival/death
+      // Make sure to randomly switch the order of survival/death in "choices"
+      "4": {
+        "text": "You find a muddy trail and cautiously follow it. Broken branches suggest someone or something used it recently.",
+        "choices": [
+          {
+            "text": "Shout for help.",
+            "next": "death_4"
+          },
+          {
+            "text": "Stay silent and walk slowly.",
+            "next": "5"
+          }
+        ]
       },
       "death_4": {
-        "text": "You walk around the machete. A snare catches your leg, hoisting you upside down. Hours later, the hyenas arrive.",
-        "choices": []
+        "text": "Your shout startles a nearby snake nest. A viper strikes your leg. You collapse, foaming at the mouth."
+      },
+      "5": {
+        "text": "You come upon a moss-covered statue of a forgotten deity. Its eyes seem to follow you. The air grows cold.",
+        "choices": [
+          {
+            "text": "Touch the statue.",
+            "next": "death_5"
+          },
+          {
+            "text": "Circle around it without touching.",
+            "next": "6"
+          }
+        ]
       },
       "death_5": {
-        "text": "You doze off, exhausted. Eyes open in the dark. A spirit watches from inches away. You don’t wake up again.",
-        "choices": []
+        "text": "The statue’s eyes glow red. Your hand sears with pain as your skin blackens and your heart stops."
+      },
+      // ... continue building story up to step 30
+      "30": {
+        "text": "You emerge from the jungle, torn and exhausted, stumbling onto a highway. A rescue jeep screeches to a halt. You're safe. For now.",
+        "choices": [
+          {
+            "text": "Collapse in relief.",
+            "next": "end"
+          },
+          {
+            "text": "Wave and scream at them.",
+            "next": "end"
+          }
+        ]
+      },
+      "end": {
+        "text": "You survived the jungle. But the memory will haunt you forever."
       }
     };
 
-    let currentStep = "1";
-
-    function showStep(stepId) {
+    function displayStep(stepId) {
       const step = story[stepId];
-      if (!step) {
-        document.getElementById('story').textContent = "Story step not found.";
-        document.getElementById('choices').innerHTML = "";
-        return;
-      }
+      document.getElementById("story-text").innerText = step.text;
 
-      document.getElementById('story').textContent = step.text;
-
-      const choicesDiv = document.getElementById('choices');
+      const choicesDiv = document.getElementById("choices");
       choicesDiv.innerHTML = "";
 
-      if (step.choices.length === 0) {
-        const btn = document.createElement("button");
-        btn.textContent = "Restart";
-        btn.onclick = () => {
-          currentStep = "1";
-          showStep(currentStep);
-        };
-        choicesDiv.appendChild(btn);
-      } else {
-        step.choices.forEach(choice => {
-          const btn = document.createElement("button");
-          btn.textContent = choice.text;
-          btn.onclick = () => {
-            currentStep = choice.next;
-            showStep(currentStep);
-          };
-          choicesDiv.appendChild(btn);
+      if (step.choices) {
+        // Shuffle choices to avoid always showing survival at the top
+        const shuffled = step.choices.sort(() => Math.random() - 0.5);
+        shuffled.forEach(choice => {
+          const button = document.createElement("button");
+          button.className = "choice-button";
+          button.innerText = choice.text;
+          button.onclick = () => displayStep(choice.next);
+          choicesDiv.appendChild(button);
         });
+      } else {
+        const restartBtn = document.createElement("button");
+        restartBtn.className = "choice-button";
+        restartBtn.innerText = "Restart";
+        restartBtn.onclick = () => displayStep("1");
+        choicesDiv.appendChild(restartBtn);
       }
     }
 
-    showStep(currentStep);
+    displayStep("1");
   </script>
-
 </body>
 </html>
