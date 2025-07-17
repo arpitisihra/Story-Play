@@ -1,40 +1,238 @@
 {
-    "start": {
-      "text": "You wake up in a dark forest. Two paths lie ahead.",
-      "choices": [
-        {"text": "Take the left path", "next": "left_path"},
-        {"text": "Take the right path", "next": "right_path"}
-      ]
-    },
-    "left_path": {
-      "text": "You meet a wise old man. He offers you a gift.",
-      "choices": [
-        {"text": "Accept the gift", "next": "gift_accepted"},
-        {"text": "Decline and walk away", "next": "gift_declined"}
-      ]
-    },
-    "right_path": {
-      "text": "A wild beast blocks your way.",
-      "choices": [
-        {"text": "Fight the beast", "next": "fight_beast"},
-        {"text": "Run away", "next": "run_away"}
-      ]
-    },
-    "gift_accepted": {
-      "text": "The gift gives you powers. You live happily ever after. THE END.",
-      "choices": []
-    },
-    "gift_declined": {
-      "text": "The old man curses you. You turn into a tree. THE END.",
-      "choices": []
-    },
-    "fight_beast": {
-      "text": "You defeat the beast and find treasure. THE END.",
-      "choices": []
-    },
-    "run_away": {
-      "text": "You escape safely but empty-handed. THE END.",
-      "choices": []
-    }
-  }
-  
+  "1": {
+    "text": "The plane screams as it tears through the sky. A thunderous jolt, screaming metal, then darkness. You wake, alone. Flames devour the wreck. Everyone else is dead.",
+    "choices": [
+      { "text": "Run downhill toward the jungle.", "next": "2" },
+      { "text": "Go back for the black box.", "next": "death_1" }
+    ]
+  },
+  "2": {
+    "text": "The jungle swallows you whole—thick vines, sharp thorns. Your clothes rip, skin bleeds. A sound behind you: something is following.",
+    "choices": [
+      { "text": "Hide in the bushes.", "next": "3" },
+      { "text": "Climb a nearby tree.", "next": "death_2" }
+    ]
+  },
+  "3": {
+    "text": "You hold your breath. The thing sniffs, snorts, and then slithers away. When you emerge, bloodied footprints trail off.",
+    "choices": [
+      { "text": "Follow the footprints.", "next": "4" },
+      { "text": "Run the other way.", "next": "death_3" }
+    ]
+  },
+  "4": {
+    "text": "The footprints lead you to a ravine, mist curling out of it. You hear whispers echoing from the depths, like voices calling your name.",
+    "choices": [
+      { "text": "Ignore the voices and walk around.", "next": "5" },
+      { "text": "Climb down into the ravine.", "next": "death_4" }
+    ]
+  },
+  "5": {
+    "text": "You stumble upon an old bridge made of vines and rotting wood. A monkey screeches overhead, then vanishes.",
+    "choices": [
+      { "text": "Cross the bridge quickly.", "next": "6" },
+      { "text": "Wait to see if it's safe.", "next": "death_5" }
+    ]
+  },
+  "6": {
+    "text": "The bridge sways but holds. On the other side, an eerie stillness settles. The jungle feels like it's holding its breath.",
+    "choices": [
+      { "text": "Keep moving forward.", "next": "7" },
+      { "text": "Shout for help.", "next": "death_6" }
+    ]
+  },
+  "7": {
+    "text": "You spot an abandoned hut with strange symbols carved into the door. A river glistens nearby.",
+    "choices": [
+      { "text": "Enter the hut.", "next": "8" },
+      { "text": "Drink from the river first.", "next": "death_7" }
+    ]
+  },
+  "8": {
+    "text": "Inside, the air is cold. A spirit flickers in the corner. It turns, slowly, its eyes glowing white.",
+    "choices": [
+      { "text": "Stay calm and bow.", "next": "9" },
+      { "text": "Scream and run.", "next": "death_8" }
+    ]
+  },
+  "9": {
+    "text": "The spirit fades. On the ground, a map appears. It shows a path marked with blood.",
+    "choices": [
+      { "text": "Follow the path.", "next": "10" },
+      { "text": "Burn the map.", "next": "death_9" }
+    ]
+  },
+  "10": {
+    "text": "You push through vines. Suddenly, the ground collapses beneath your feet and you tumble into a pit.",
+    "choices": [
+      { "text": "Climb out fast.", "next": "11" },
+      { "text": "Call for help.", "next": "death_10" }
+    ]
+  },
+  "11": {
+    "text": "You scrape your hands raw, but you climb out. A path opens ahead with twisted, black trees.",
+    "choices": [
+      { "text": "Enter the path.", "next": "12" },
+      { "text": "Go back.", "next": "death_11" }
+    ]
+  },
+  "12": {
+    "text": "You see a woman in white standing ahead. Her feet don’t touch the ground. Her eyes are empty.",
+    "choices": [
+      { "text": "Bow respectfully.", "next": "13" },
+      { "text": "Ask who she is.", "next": "death_12" }
+    ]
+  },
+  "13": {
+    "text": "She vanishes. In her place is a tunnel of light. You step through.",
+    "choices": [
+      { "text": "Keep walking.", "next": "14" },
+      { "text": "Turn back again.", "next": "death_13" }
+    ]
+  },
+  "14": {
+    "text": "You reach a clearing. A child sits alone, humming a tune that chills your bones.",
+    "choices": [
+      { "text": "Approach him slowly.", "next": "15" },
+      { "text": "Throw a rock to distract him.", "next": "death_14" }
+    ]
+  },
+  "15": {
+    "text": "He smiles. Behind him is a hidden cave entrance with torches flickering inside.",
+    "choices": [
+      { "text": "Enter the cave.", "next": "16" },
+      { "text": "Stay outside.", "next": "death_15" }
+    ]
+  },
+  "16": {
+    "text": "The cave drips blood from the ceiling. Skulls are stacked along the wall. Something breathes in the dark.",
+    "choices": [
+      { "text": "Whisper a prayer and walk forward.", "next": "17" },
+      { "text": "Light a fire.", "next": "death_16" }
+    ]
+  },
+  "17": {
+    "text": "Your footsteps echo. At the end of the tunnel is a ladder. It goes straight up.",
+    "choices": [
+      { "text": "Climb up.", "next": "18" },
+      { "text": "Wait and listen.", "next": "death_17" }
+    ]
+  },
+  "18": {
+    "text": "You emerge in a burnt forest. Smoke still rises from trees. A broken road cuts through.",
+    "choices": [
+      { "text": "Follow the road.", "next": "19" },
+      { "text": "Go into the smoke.", "next": "death_18" }
+    ]
+  },
+  "19": {
+    "text": "A derelict vehicle sits idling with no one inside. The keys are in the ignition.",
+    "choices": [
+      { "text": "Drive it away.", "next": "20" },
+      { "text": "Check the back seat.", "next": "death_19" }
+    ]
+  },
+  "20": {
+    "text": "You speed down the broken road. Shapes dart between the trees. The vehicle sputters and dies.",
+    "choices": [
+      { "text": "Run on foot.", "next": "21" },
+      { "text": "Try to fix the engine.", "next": "death_20" }
+    ]
+  },
+  "21": {
+    "text": "You hear a loud crack. A trap snaps nearby, but you avoid it barely.",
+    "choices": [
+      { "text": "Slow down and move carefully.", "next": "22" },
+      { "text": "Keep running.", "next": "death_21" }
+    ]
+  },
+  "22": {
+    "text": "A highway sign glints in the distance. You’re near civilization.",
+    "choices": [
+      { "text": "Follow the sign.", "next": "23" },
+      { "text": "Climb a tree to scout.", "next": "death_22" }
+    ]
+  },
+  "23": {
+    "text": "You find a muddy road with tire tracks. A rescue team may have passed recently.",
+    "choices": [
+      { "text": "Wait here and light a fire.", "next": "24" },
+      { "text": "Keep walking fast.", "next": "death_23" }
+    ]
+  },
+  "24": {
+    "text": "A flare shoots up in the distance. You run toward it with your last breath.",
+    "choices": [
+      { "text": "Wave your arms and shout.", "next": "25" },
+      { "text": "Hide and watch.", "next": "death_24" }
+    ]
+  },
+  "25": {
+    "text": "Voices! Radios crackle. Flashlights cut through the dark. Rescue is near.",
+    "choices": [
+      { "text": "Sprint to them.", "next": "26" },
+      { "text": "Collapse and cry.", "next": "death_25" }
+    ]
+  },
+  "26": {
+    "text": "Strong arms catch you. You're lifted into a van. Water. Warmth. Safety.",
+    "choices": [
+      { "text": "Thank them and sleep.", "next": "27" },
+      { "text": "Ask for your family.", "next": "death_26" }
+    ]
+  },
+  "27": {
+    "text": "You dream of green vines, of fire and spirits. But you're safe now.",
+    "choices": [
+      { "text": "Wake up and go home.", "next": "28" },
+      { "text": "Stay asleep forever.", "next": "death_27" }
+    ]
+  },
+  "28": {
+    "text": "The highway rushes past outside the window. You survived the jungle. But did it let you go?",
+    "choices": [
+      { "text": "Close your eyes.", "next": "29" },
+      { "text": "Look back at the forest.", "next": "death_28" }
+    ]
+  },
+  "29": {
+    "text": "A single vine clings to the back of the van. But it withers. You're truly free.",
+    "choices": [
+      { "text": "Smile quietly.", "next": "30" },
+      { "text": "Reach for your phone.", "next": "death_29" }
+    ]
+  },
+  "30": {
+    "text": "You survived. But others won’t. The jungle waits for its next guest...",
+    "choices": []
+  },
+  "death_1": { "text": "You’re blown apart in the second explosion. The jungle falls silent as your body burns.", "choices": [] },
+  "death_2": { "text": "A jaguar leaps from the canopy and crushes your spine. You don’t even have time to scream.", "choices": [] },
+  "death_3": { "text": "You trip on a root, fall into a nest of snakes. The venom is quick.", "choices": [] },
+  "death_4": { "text": "You fall and break your neck. The whispers laugh.", "choices": [] },
+  "death_5": { "text": "The bridge snaps. You fall into jagged rocks.", "choices": [] },
+  "death_6": { "text": "Your voice awakens something. It hunts sound.", "choices": [] },
+  "death_7": { "text": "The river is poisoned. Your insides melt.", "choices": [] },
+  "death_8": { "text": "The spirit shrieks. Your mind shatters.", "choices": [] },
+  "death_9": { "text": "The map burns, and the flames consume your hand, your arm... your soul.", "choices": [] },
+  "death_10": { "text": "Something hears your call. It answers with teeth.", "choices": [] },
+  "death_11": { "text": "You turn back—but you were never meant to leave.", "choices": [] },
+  "death_12": { "text": "She opens her mouth. A void swallows you whole.", "choices": [] },
+  "death_13": { "text": "You vanish between two worlds. Neither wants you.", "choices": [] },
+  "death_14": { "text": "The rock hits the boy. He screams. The forest attacks you.", "choices": [] },
+  "death_15": { "text": "The boy grins. You're surrounded by shadows.", "choices": [] },
+  "death_16": { "text": "The flame angers something ancient. It devours the oxygen.", "choices": [] },
+  "death_17": { "text": "You hear your own name whispered behind you. Then claws.", "choices": [] },
+  "death_18": { "text": "The smoke blinds you. You stumble off a cliff.", "choices": [] },
+  "death_19": { "text": "A figure waits in the back seat. You never make it to the highway.", "choices": [] },
+  "death_20": { "text": "Your hands slip. A fuse sparks. The engine explodes.", "choices": [] },
+  "death_21": { "text": "A hidden spear impales you mid-stride.", "choices": [] },
+  "death_22": { "text": "You slip. The tree eats you.", "choices": [] },
+  "death_23": { "text": "You walk into a field of mines.", "choices": [] },
+  "death_24": { "text": "What you thought was rescue... wasn’t.", "choices": [] },
+  "death_25": { "text": "You faint. The light passes over you.", "choices": [] },
+  "death_26": { "text": "You speak the name of someone long dead. They answer.", "choices": [] },
+  "death_27": { "text": "You dream forever. The jungle keeps you.", "choices": [] },
+  "death_28": { "text": "Your eyes meet something in the trees. Your heart stops.", "choices": [] },
+  "death_29": { "text": "You scroll your phone. The screen flashes. The forest reaches through.", "choices": [] }
+}
